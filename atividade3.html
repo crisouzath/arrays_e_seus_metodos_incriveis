@@ -1,0 +1,80 @@
+<html>
+    <meta charset="UTF-8">
+    <script>
+      const anelInvisibilidade="Anel da Invisibilidade";
+      const botaMagica="Bota Mágica";
+      const pocaoSono="Poção do Sono";
+      const pocaoInocencia="Poção da Inocência";
+      const capaInvisibilidade="Capa da Invisibilidade";
+      const pedraDespertar="Pedra do Despertar";
+      const varinhaDasVarinhas="Varinha das Varinhas";
+      const pocaoDaMentira="Poção da Mentira";
+      const pocaoAntiInteligencia="Poção Anti-Inteligência";
+      const escudoMagico="Escudo Mágico";
+      const espadaMagica="Espada Mágica";
+      const ovoDragao="Ovo de Dragão";
+      const coxinha="Coxinha";
+
+      let Drofo=[anelInvisibilidade, botaMagica, botaMagica, pocaoSono, pocaoInocencia, pocaoInocencia];
+      let Torper=[capaInvisibilidade, pedraDespertar, varinhaDasVarinhas, pocaoInocencia, pocaoDaMentira, pocaoDaMentira, pocaoAntiInteligencia];
+
+      //Torper consumiu uma das poções da mentira
+      remover(Torper, pocaoDaMentira);
+
+      //Torper perdeu a pedra do despertar
+      remover(Torper, pedraDespertar);
+
+      //Torper ganhou um par de botas magicas do Dorfo
+      trocar(Drofo, Torper, botaMagica);
+
+      //Torper achou um escudo magico e uma espada magica
+      adicionar(Torper, escudoMagico);
+      adicionar(Torper, espadaMagica);
+
+      //Drofo ganhou mais uma bota mágica
+      adicionar(Drofo, botaMagica);
+
+      //Drofo usou sua poção do sono
+      remover(Drofo, pocaoSono);
+
+      //Drofo consumiu a poção anti-inteligência do Torper
+      remover(Torper, pocaoAntiInteligencia);
+
+      //Drofo encontrou um ovo de dragão e uma coxinha
+      adicionar(Drofo, ovoDragao);
+      adicionar(Drofo, coxinha);
+
+      document.write("<b>Inventário do Torper:</b><br>");
+      renderizarInventario(Torper);
+      document.write("<b>Inventário do Drofo:</b><br>");
+      renderizarInventario(Drofo);
+
+      //adiciona um item ao inventario
+      function adicionar(inventario, item){
+        inventario.push(item);
+      }
+
+      //retira um item do inventario
+      function remover(inventario, item){
+        inventario.splice(inventario.indexOf(item), 1);
+      }
+
+      //troca itens entre os inventarios
+      function trocar(inventario1, inventario2, item){
+        inventario1.splice(inventario1.indexOf(item), 1);
+        inventario2.push(inventario1[inventario1.indexOf(item)]);
+      }
+
+      //mostra o inventario
+      function renderizarInventario(inventario){
+        for(let i=0; i<inventario.length; i++){
+          if(i==inventario.length-1){
+            document.write(inventario[i]+'<br><br>');
+          }else{
+            document.write(inventario[i]+'<br>');
+          }
+        }
+      }
+
+    </script>
+</html>

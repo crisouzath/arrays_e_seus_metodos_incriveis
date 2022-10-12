@@ -1,0 +1,21 @@
+<!-- Faça um algoritmo para ler 12 números informados pelo usuário e armazenar em dois arrays: um com os números acima de 50. Outro com números abaixo de 50. -->
+<html>
+    <meta charset="UTF-8">
+    <script>
+       var numerosMaiores50=[];
+       var numerosMenores50=[];
+
+       for(let i=1; i<=12; i++){
+        var numero=parseFloat(prompt("Digite um número"));
+
+        if(numero>50){
+            numerosMaiores50.push(numero);
+        }else if(numero<50){
+            numerosMenores50.push(numero);
+        }
+       }
+
+       alert(numerosMaiores50);
+       alert(numerosMenores50);
+    </script>
+</html>
